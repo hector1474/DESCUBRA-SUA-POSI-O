@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SportMatch — Descubra sua verdadeira posição no esporte com análise inteligente de habilidades físicas, técnicas e comportamentais." />
+  <meta name="keywords" content="esporte, posição, análise, futsal, futebol, vôlei, basquete, handebol, atleta" />
+  <meta name="author" content="SportMatch 2026" />
+  <meta property="og:title" content="SportMatch — Descubra Sua Melhor Posição no Esporte" />
+  <meta property="og:description" content="Análise inteligente das suas habilidades esportivas." />
+  <meta property="og:type" content="website" />
+  <title>SportMatch — Descubra Sua Melhor Posição no Esporte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════
+       LOADING SCREEN
+  ════════════════════════════════════════ -->
+  <div id="loading-screen" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="loader-icon">⚡</span>
+        <span class="loader-brand">SPORT<em>MATCH</em></span>
+      </div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar" id="loader-bar"></div>
+      </div>
+      <p class="loader-text" id="loader-text">Inicializando análise…</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       TOAST NOTIFICATIONS
+  ════════════════════════════════════════ -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <!-- ════════════════════════════════════════
+       HEADER / NAV
+  ════════════════════════════════════════ -->
+  <header id="main-header">
+    <nav class="nav-container" role="navigation" aria-label="Navegação principal">
+      <a href="#hero" class="nav-logo" aria-label="SportMatch início">
+        <span class="logo-icon">⚡</span>
+        <span>SPORT<em>MATCH</em></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="#modalidades" class="nav-link">Modalidades</a></li>
+        <li><a href="#cadastro" class="nav-link">Avaliação</a></li>
+        <li><a href="#ods" class="nav-link">ODS</a></li>
+        <li><a href="#cadastro" class="nav-cta">Começar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ════════════════════════════════════════
+       MAIN — telas gerenciadas por JS
+  ════════════════════════════════════════ -->
+  <main id="app">
+
+    <!-- ──────────────────────────────────────
+         SEÇÃO 1 · HERO
+    ────────────────────────────────────── -->
+    <section id="hero" class="section hero-section" aria-labelledby="hero-title">
+      <!-- partículas de fundo -->
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-orb orb-1"></div>
+        <div class="hero-orb orb-2"></div>
+        <div class="hero-orb orb-3"></div>
+        <div class="hero-grid"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-text" data-animate="slide-up">
+          <span class="hero-eyebrow">🏆 Plataforma de Análise Esportiva</span>
+          <h1 id="hero-title" class="hero-title">
+            Descubra Sua<br /><em>Verdadeira Posição</em><br />no Esporte
+          </h1>
+          <p class="hero-subtitle">
+            Uma análise inteligente das suas habilidades físicas, técnicas e comportamentais para encontrar onde você brilha em quadra.
+          </p>
+          <div class="hero-actions">
+            <a href="#cadastro" class="btn btn-primary btn-large">
+              <span>Fazer Avaliação</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#sobre" class="btn btn-ghost btn-large">Saiba Mais</a>
+          </div>
+          <!-- contadores animados -->
+          <div class="hero-stats" role="list">
+            <div class="stat-item" role="listitem">
+              <span class="stat-number" data-target="5">0</span>
+              <span class="stat-label">Modalidades</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-item" role="listitem">
+              <span class="stat-number" data-target="30">0</span>
+              <span class="stat-label">Posições Mapeadas</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-item" role="listitem">
+              <span class="stat-number" data-target="9">0</span>
+              <span class="stat-label">Habilidades Analisadas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- cards flutuantes -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="float-card card-a">
+            <span class="fc-icon">⚽</span>
+            <div>
+              <strong>Futebol</strong>
+              <small>Ponta Esquerda</small>
+            </div>
+            <span class="fc-badge fc-green">98%</span>
+          </div>
+          <div class="float-card card-b">
+            <span class="fc-icon">🏀</span>
+            <div>
+              <strong>Basquete</strong>
+              <small>Armador</small>
+            </div>
+            <span class="fc-badge fc-blue">91%</span>
+          </div>
+          <div class="float-card card-c">
+            <span class="fc-icon">🏐</span>
+            <div>
+              <strong>Vôlei</strong>
+              <small>Líbero</small>
+            </div>
+            <span class="fc-badge fc-orange">85%</span>
+          </div>
+          <div class="hero-medal">
+            <svg viewBox="0 0 80 80" width="80" height="80">
+              <circle cx="40" cy="40" r="36" fill="none" stroke="#0066FF" stroke-width="3" stroke-dasharray="226" stroke-dashoffset="45" />
+              <circle cx="40" cy="40" r="28" fill="rgba(0,102,255,0.12)" />
+              <text x="40" y="46" text-anchor="middle" font-size="26" fill="#0066FF">⚡</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- scroll indicator -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-dot"></div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────────────────────
+         SEÇÃO 2 · SOBRE
+    ────────────────────────────────────── -->
+    <section id="sobre" class="section sobre-section" aria-labelledby="sobre-title">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-eyebrow">O Projeto</span>
+          <h2 id="sobre-title" class="section-title">O que é o <em>SportMatch?</em></h2>
+          <p class="section-desc">Uma plataforma que cruza suas habilidades com perfis técnicos de cada posição para entregar a análise mais precisa possível.</p>
+        </div>
+
+        <div class="sobre-grid">
+          <div class="sobre-card" data-animate="fade-up" data-delay="0">
+            <div class="sc-icon-wrap" style="--c:#0066FF">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+            </div>
+            <h3>Análise Personalizada</h3>
+            <p>9 habilidades avaliadas individualmente através de sliders intuitivos para um perfil único.</p>
+          </div>
+          <div class="sobre-card" data-animate="fade-up" data-delay="100">
+            <div class="sc-icon-wrap" style="--c:#00C853">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3>Resultado em Minutos</h3>
+            <p>Algoritmo inteligente processa suas respostas e entrega o relatório completo instantaneamente.</p>
+          </div>
+          <div class="sobre-card" data-animate="fade-up" data-delay="200">
+            <div class="sc-icon-wrap" style="--c:#FF6B35">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <h3>Para Todo Atleta</h3>
+            <p>Iniciantes ou experientes, jovens ou adultos — a análise se adapta ao seu perfil esportivo.</p>
+          </div>
+          <div class="sobre-card" data-animate="fade-up" data-delay="300">
+            <div class="sc-icon-wrap" style="--c:#9B59B6">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3>Relatório Completo</h3>
+            <p>Pontos fortes, pontos a desenvolver e sugestões de treino específicas para a sua posição.</p>
+          </div>
+        </div>
+
+        <!-- como funciona -->
+        <div class="como-funciona" data-animate="fade-up">
+          <h3 class="cf-title">Como Funciona</h3>
+          <div class="cf-steps">
+            <div class="cf-step">
+              <div class="cf-step-num">01</div>
+              <div class="cf-step-text">
+                <strong>Cadastre seus dados</strong>
+                <span>Nome, idade, altura, peso e escolha o esporte</span>
+              </div>
+            </div>
+            <div class="cf-arrow" aria-hidden="true">→</div>
+            <div class="cf-step">
+              <div class="cf-step-num">02</div>
+              <div class="cf-step-text">
+                <strong>Responda a Ficha</strong>
+                <span>Avalie 9 habilidades de 1 a 10 com sliders</span>
+              </div>
+            </div>
+            <div class="cf-arrow" aria-hidden="true">→</div>
+            <div class="cf-step">
+              <div class="cf-step-num">03</div>
+              <div class="cf-step-text">
+                <strong>Veja seu Resultado</strong>
+                <span>Relatório completo com posição ideal e treinos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────────────────────
+         SEÇÃO 3 · MODALIDADES
+    ────────────────────────────────────── -->
+    <section id="modalidades" class="section modalidades-section" aria-labelledby="mod-title">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-eyebrow">Esportes</span>
+          <h2 id="mod-title" class="section-title">Modalidades <em>Disponíveis</em></h2>
+          <p class="section-desc">Escolha seu esporte e descubra qual posição combina com o seu perfil atlético.</p>
+        </div>
+
+        <div class="mod-grid">
+          <div class="mod-card" data-animate="fade-up" data-delay="0" tabindex="0" role="article" aria-label="Futsal">
+            <div class="mod-bg" style="--accent:#0066FF"></div>
+            <div class="mod-icon">⚽</div>
+            <h3>Futsal</h3>
+            <p>Velocidade, dribles e tomada de decisão rápida em quadra fechada de alto ritmo.</p>
+            <div class="mod-positions">
+              <span>Goleiro</span><span>Fixo</span><span>Ala</span><span>Pivô</span>
+            </div>
+            <div class="mod-arrow">→</div>
+          </div>
+
+          <div class="mod-card" data-animate="fade-up" data-delay="100" tabindex="0" role="article" aria-label="Futebol de Campo">
+            <div class="mod-bg" style="--accent:#00C853"></div>
+            <div class="mod-icon">🏟️</div>
+            <h3>Futebol de Campo</h3>
+            <p>A modalidade mais popular do mundo, com diversas posições técnicas e táticas.</p>
+            <div class="mod-positions">
+              <span>Goleiro</span><span>Zagueiro</span><span>Lateral</span><span>Meia</span><span>+3</span>
+            </div>
+            <div class="mod-arrow">→</div>
+          </div>
+
+          <div class="mod-card" data-animate="fade-up" data-delay="200" tabindex="0" role="article" aria-label="Vôlei">
+            <div class="mod-bg" style="--accent:#FF6B35"></div>
+            <div class="mod-icon">🏐</div>
+            <h3>Vôlei</h3>
+            <p>Salto, precisão e leitura de jogo em um dos esportes mais técnicos do Brasil.</p>
+            <div class="mod-positions">
+              <span>Levantador</span><span>Líbero</span><span>Ponteiro</span><span>+2</span>
+            </div>
+            <div class="mod-arrow">→</div>
+          </div>
+
+          <div class="mod-card" data-animate="fade-up" data-delay="300" tabindex="0" role="article" aria-label="Basquete">
+            <div class="mod-bg" style="--accent:#E67E22"></div>
+            <div class="mod-icon">🏀</div>
+            <h3>Basquete</h3>
+            <p>Leitura de jogo, arremesso e inteligência tática para dominar as quadras.</p>
+            <div class="mod-positions">
+              <span>Armador</span><span>Ala</span><span>Pivô</span><span>+2</span>
+            </div>
+            <div class="mod-arrow">→</div>
+          </div>
+
+          <div class="mod-card" data-animate="fade-up" data-delay="400" tabindex="0" role="article" aria-label="Handebol">
+            <div class="mod-bg" style="--accent:#9B59B6"></div>
+            <div class="mod-icon">🤾</div>
+            <h3>Handebol</h3>
+            <p>Força, velocidade e organização coletiva no esporte de equipe mais dinâmico.</p>
+            <div class="mod-positions">
+              <span>Goleiro</span><span>Armador</span><span>Ponta</span><span>Pivô</span>
+            </div>
+            <div class="mod-arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────────────────────
+         SEÇÃO 4 · CADASTRO
+    ────────────────────────────────────── -->
+    <section id="cadastro" class="section cadastro-section" aria-labelledby="cad-title">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-eyebrow">Avaliação</span>
+          <h2 id="cad-title" class="section-title">Inicie Sua <em>Análise</em></h2>
+          <p class="section-desc">Preencha seus dados para personalizarmos sua ficha técnica.</p>
+        </div>
+
+        <div class="form-card" data-animate="fade-up">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="inp-nome">Nome Completo</label>
+              <input type="text" id="inp-nome" placeholder="Seu nome" autocomplete="given-name" />
+            </div>
+            <div class="form-group">
+              <label for="inp-idade">Idade</label>
+              <input type="number" id="inp-idade" placeholder="Ex: 17" min="5" max="80" />
+            </div>
+            <div class="form-group">
+              <label for="inp-altura">Altura (cm)</label>
+              <input type="number" id="inp-altura" placeholder="Ex: 175" min="100" max="250" />
+            </div>
+            <div class="form-group">
+              <label for="inp-peso">Peso (kg)</label>
+              <input type="number" id="inp-peso" placeholder="Ex: 70" min="30" max="200" />
+            </div>
+            <div class="form-group form-full">
+              <label for="inp-esporte">Modalidade Esportiva</label>
+              <div class="select-wrap">
+                <select id="inp-esporte">
+                  <option value="">Selecione o esporte…</option>
+                  <option value="futsal">⚽ Futsal</option>
+                  <option value="futebol">🏟️ Futebol de Campo</option>
+                  <option value="volei">🏐 Vôlei</option>
+                  <option value="basquete">🏀 Basquete</option>
+                  <option value="handebol">🤾 Handebol</option>
+                </select>
+                <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <button id="btn-iniciar" class="btn btn-primary btn-full" type="button">
+            <span>Iniciar Avaliação</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────────────────────
+         SEÇÃO 5 · QUESTIONÁRIO (oculto)
+    ────────────────────────────────────── -->
+    <section id="questionario" class="section quiz-section hidden" aria-labelledby="quiz-title">
+      <div class="container">
+        <div class="quiz-header">
+          <div class="quiz-meta">
+            <span id="quiz-sport-label" class="quiz-sport"></span>
+            <h2 id="quiz-title" class="quiz-title">Ficha <em>Técnica</em></h2>
+          </div>
+          <!-- barra de progresso -->
+          <div class="progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="9" aria-valuenow="0" id="progress-bar-wrap">
+            <div class="progress-info">
+              <span id="progress-label">Habilidade 1 de 9</span>
+              <span id="progress-pct">0%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- container da pergunta ativa -->
+        <div class="quiz-card" id="quiz-card">
+          <div class="quiz-question-wrap">
+            <div class="quiz-q-icon" id="quiz-q-icon"></div>
+            <h3 class="quiz-question" id="quiz-question"></h3>
+            <p class="quiz-hint" id="quiz-hint"></p>
+          </div>
+
+          <div class="slider-wrap">
+            <div class="slider-labels">
+              <span>Fraco</span>
+              <span>Médio</span>
+              <span>Excelente</span>
+            </div>
+            <input type="range" id="quiz-slider" class="quiz-slider" min="1" max="10" value="5" aria-label="Avaliação da habilidade" />
+            <div class="slider-value-wrap">
+              <span class="slider-value" id="slider-value">5</span>
+              <span class="slider-value-label">/10</span>
+            </div>
+          </div>
+
+          <div class="quiz-nav">
+            <button id="btn-prev" class="btn btn-ghost" type="button">← Anterior</button>
+            <button id="btn-next" class="btn btn-primary" type="button">
+              <span id="btn-next-text">Próximo</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- dots de progresso -->
+        <div class="quiz-dots" id="quiz-dots" role="list" aria-label="Perguntas"></div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────────────────────
+         SEÇÃO 6 · RESULTADO (oculto)
+    ────────────────────────────────────── -->
+    <section id="resultado" class="section result-section hidden" aria-labelledby="result-title">
+      <div class="container">
+        <!-- topo do resultado -->
+        <div class="result-hero" data-animate="fade-up">
+          <span class="result-eyebrow">✅ Análise Concluída</span>
+          <p class="result-intro">Você tem perfil para atuar como:</p>
+          <h2 id="result-title" class="result-position"></h2>
+          <p class="result-sport-label" id="result-sport-label"></p>
+        </div>
+
+        <!-- compatibilidade + gráfico -->
+        <div class="result-compat-wrap" data-animate="fade-up">
+          <div class="compat-card">
+            <p class="compat-label">Compatibilidade</p>
+            <div class="compat-ring-wrap">
+              <svg class="compat-ring" viewBox="0 0 120 120" width="160" height="160">
+                <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="10"/>
+                <circle cx="60" cy="60" r="50" fill="none" stroke="#00C853" stroke-width="10"
+                  stroke-dasharray="314" stroke-dashoffset="314"
+                  stroke-linecap="round" id="compat-arc"
+                  transform="rotate(-90 60 60)"/>
+              </svg>
+              <div class="compat-pct-inner">
+                <span class="compat-pct" id="compat-pct">0%</span>
+                <small>match</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- barras de desempenho -->
+          <div class="perf-bars" id="perf-bars"></div>
+        </div>
+
+        <!-- pontos fortes / a desenvolver -->
+        <div class="result-grid" data-animate="fade-up">
+          <div class="result-card result-strong">
+            <h3>💪 Pontos Fortes</h3>
+            <ul id="result-strong-list"></ul>
+          </div>
+          <div class="result-card result-weak">
+            <h3>🎯 Pontos a Desenvolver</h3>
+            <ul id="result-weak-list"></ul>
+          </div>
+        </div>
+
+        <!-- perfil esportivo -->
+        <div class="result-profile" data-animate="fade-up">
+          <h3>📋 Perfil Esportivo</h3>
+          <p id="result-profile-text"></p>
+        </div>
+
+        <!-- sugestões de treino -->
+        <div class="result-training" data-animate="fade-up">
+          <h3>🏋️ Sugestões de Treino</h3>
+          <div class="training-grid" id="training-grid"></div>
+        </div>
+
+        <!-- botões -->
+        <div class="result-actions" data-animate="fade-up">
+          <button id="btn-refazer" class="btn btn-primary btn-large" type="button">Refazer Avaliação</button>
+          <button id="btn-inicio" class="btn btn-ghost btn-large" type="button">← Voltar ao Início</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────────────────────
+         SEÇÃO 7 · ODS
+    ────────────────────────────────────── -->
+    <section id="ods" class="section ods-section" aria-labelledby="ods-title">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-eyebrow">Impacto Social</span>
+          <h2 id="ods-title" class="section-title">Objetivos de <em>Desenvolvimento</em> Sustentável</h2>
+          <p class="section-desc">O SportMatch está alinhado com a Agenda 2030 da ONU para um futuro mais justo e saudável.</p>
+        </div>
+
+        <div class="ods-grid">
+          <div class="ods-card" data-animate="fade-up" data-delay="0">
+            <div class="ods-badge" style="background:#4C9A2A">ODS 3</div>
+            <div class="ods-icon">❤️</div>
+            <h3>Saúde e Bem-Estar</h3>
+            <p>Incentivamos a prática esportiva como caminho para uma vida mais saudável e ativa, combatendo o sedentarismo desde cedo.</p>
+          </div>
+          <div class="ods-card" data-animate="fade-up" data-delay="150">
+            <div class="ods-badge" style="background:#C5192D">ODS 4</div>
+            <div class="ods-icon">📚</div>
+            <h3>Educação de Qualidade</h3>
+            <p>Oferecemos orientação técnica gratuita e acessível, democratizando o conhecimento esportivo para todos os jovens atletas.</p>
+          </div>
+          <div class="ods-card" data-animate="fade-up" data-delay="300">
+            <div class="ods-badge" style="background:#DD1367">ODS 10</div>
+            <div class="ods-icon">⚖️</div>
+            <h3>Redução das Desigualdades</h3>
+            <p>Independentemente de recursos financeiros, todo atleta tem acesso à mesma análise profissional de habilidades.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════
+       RODAPÉ
+  ════════════════════════════════════════ -->
+  <footer id="main-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo" aria-label="SportMatch">
+          <span class="logo-icon">⚡</span>
+          <span>SPORT<em>MATCH</em></span>
+        </a>
+        <p>Descubra Sua Melhor Posição no Esporte.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Navegação rodapé">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#modalidades">Modalidades</a></li>
+          <li><a href="#cadastro">Avaliação</a></li>
+          <li><a href="#ods">ODS</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-info">
+        <h4>Modalidades</h4>
+        <ul>
+          <li>⚽ Futsal</li>
+          <li>🏟️ Futebol de Campo</li>
+          <li>🏐 Vôlei</li>
+          <li>🏀 Basquete</li>
+          <li>🤾 Handebol</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>SportMatch &copy; 2026 — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
